@@ -1,0 +1,29 @@
+﻿@model IEnumerable<StarPingData.Models.DeviceModel>
+@{
+    ViewBag.Title = "All Devices";
+    Layout = "~/Views/Shared/_StoreLayout.cshtml";
+}
+
+        <div id="index-banner" class="parallax-container">
+            <div class="section no-pad-bot">
+                <div class="container">
+                    <br><br>
+                    <h1 class="header center purple-text text-accent-3">
+                        Your Gateway to Limitless Connectivity
+                    </h1>
+                    <div class="row center">
+                        <h5 class="header col s12 light">
+                    At StarPing, we believe that the internet should be fast, reliable, and hassle-free. Our internet packages are tailored to suit various lifestyles, from casual browsing to high-demand streaming, remote work, and business-critical operations. With cutting-edge infrastructure and a passion for innovation, we empower individuals and organizations to stay connected at all times.
+                        </h5>
+                    </div>
+                </div>
+            </div>
+            <div class="parallax"><img src="~/starsVertical.png" alt="Unsplashed background img 1"></div>
+        </div>
+
+        <div class="container">
+            <div class="section center">
+                <h4>Browse our offers:</h4>
+            </div>
+        </div>
+        @await Html.PartialAsync("DevicesTable", Model)

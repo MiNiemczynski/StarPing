@@ -1,0 +1,31 @@
+﻿@model IEnumerable<StarPingData.Models.OfferModel>
+@{
+    ViewBag.Title = "Business Offers";
+    Layout = "~/Views/Shared/_StoreLayout.cshtml";
+}
+
+<div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+        <div class="container">
+            <br><br>
+            <h1 class="header center purple-text text-accent-3">
+                Built for Performance, Backed by Professionals
+            </h1>
+            <div class="row center">
+                <h5 class="header col s12 light">
+                    Empower your business with StarPing’s high-performance internet solutions. Whether you run a small startup or a large enterprise, our business-grade plans offer ultra-fast speeds, dedicated bandwidth, and enterprise-level reliability. With guaranteed uptime, priority support, and tailored packages, StarPing keeps your operations online and ahead of the curve.
+
+
+                </h5>
+            </div>
+        </div>
+    </div>
+    <div class="parallax"><img src="~/starsVertical.png" alt="Unsplashed background img 1"></div>
+</div>
+
+<div class="container">
+    <div class="section center">
+        <h4>Browse our business offers:</h4>
+    </div>
+</div>
+@await Html.PartialAsync("OffersTable", Model)

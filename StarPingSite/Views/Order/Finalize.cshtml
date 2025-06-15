@@ -1,0 +1,38 @@
+﻿@model StarPingData.Models.OrderModel
+@{
+    int subscriptionsCount = Model.Subscriptions.Count();
+    int devicesCount = Model.OrderDevices.Count();
+    int monthlyPaymentsCount = Model.Payments.Where(item => item.DeadlineDate != null).Count();
+    decimal monthlyPaymentsTotal = Model.Payments.Where(item => item.DeadlineDate != null).Select(item => item.Amount).Sum();
+    decimal checkoutTotal = Model.Payments.Where(item => item.DeadlineDate == null).Select(item => item.Amount).Sum();
+    string address = (Model.Address?.Street == null || Model.Address?.City == null || Model.Address?.PostalCode == null || Model.Address?.Region == null)
+                            ? "incomplete" : $"{Model.Address.Street} {Model.Address.City} {Model.Address.PostalCode} {Model.Address.Region}";
+}
+<div class="col-12">
+    <div class="container">
+        <div class="row">
+            <h4>Finalization:</h4>
+        </div>
+        <div class="row">
+            <h5 class="left-align">Devices: <b>@devicesCount</b> for @checkoutTotal zł</h5>
+        </div>
+        <div class="row">
+            <h5 class="left-align">Subscriptions: <b>@subscriptionsCount</b> for @monthlyPaymentsTotal zł in total of @monthlyPaymentsCount payments</h5>
+        </div>
+        <div class="row">
+            <h5 class="left-align">Address: <i id="address-value">@address</i></h5>
+        </div>
+        <div class="row">
+            @if (!Model.IsFinalized)
+            {
+                <form asp-action="Save" method="post" class="light text-white">
+                    <input type="hidden" name="Id" value="@Model.Id" />
+                    <button type="submit" class="btn-large hoverable waves-effect waves-light purple accent-3 lighten-1">
+                        Finalize order
+                        <i class="material-icons right">payment</i>
+                    </button>
+                </form>
+            }
+        </div>
+    </div>
+</div>

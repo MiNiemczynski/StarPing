@@ -1,0 +1,82 @@
+﻿@model StarPingData.Models.DeviceModel
+@{
+    ViewData["Title"] = @Model.Name;
+    Layout = "~/Views/Shared/_StoreLayout.cshtml";
+}
+<body class="container mt-5">
+    <div class="section">
+        <div class="row hstack">
+            <div class="col">
+                <h3>
+                    @Model.Name
+                </h3>
+            </div>
+            <div class="col">
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn-large hoverable waves-effect waves-light purple accent-3 lighten-1">
+                    Edit
+                    <i class="material-icons right">edit</i>
+                </a>
+                <a asp-action="Delete" asp-route-id="@Model.Id" class="btn-large hoverable waves-effect waves-light purple accent-3 lighten-1">
+                    Delete
+                    <i class="material-icons right">delete</i>
+                </a>
+            </div>
+            <div class="col">
+            </div>
+        </div>
+        <h4>
+            @Model.Description
+        </h4>
+        <div class="row">
+            <div class="col-8">
+                <table class="responsive-table">
+                    <tr>
+                        <th>Speed: </th>
+                        <td>@Model.SpeedMbps Mb/s</td>
+                    </tr>
+                    <tr>
+                        <th>Price: </th>
+                        <td>@Model.Price zł</td>
+                    </tr>
+                    <tr>
+                        <th>Type: </th>
+                        <td>@(Model.IsMobile ? "Mobile" : "Stationary") Device</td>
+                    </tr>
+                </table>
+                <div class="row">
+                    <div class="col 3">
+                        <a asp-controller="Cart" asp-action="AddDeviceToCart" asp-route-id="@Model.Id" class="btn-large hoverable waves-effect waves-light purple accent-3 lighten-1">
+                            Add to cart
+                            <i class="material-icons right">shopping_basket</i>
+                        </a>
+                        <a asp-controller="Cart" asp-action="AddDeviceToCart" asp-route-id="@Model.Id" asp-route-finalize="true" class="btn-large hoverable waves-effect waves-light purple accent-3 lighten-1">
+                            Buy now
+                            <i class="material-icons right">shop</i>
+                        </a>
+                    </div>
+                    <div class="col 6"></div>
+                </div>
+            </div>
+            <div class="col-4">
+                @(Model.Reviews.Any() ? Html.Raw("<h4>Reviews:</h4>") : Html.Raw("<i>No reviews for that device yet</i>"))
+                @foreach (var review in Model.Reviews)
+                {
+                    <div class="row">
+                        <h4>
+                            @review.User.Name
+                        </h4>
+                        <p>
+                            @for (int i = 0; i < review.Rate; i++)
+                            {
+                                <i class="material-icons">star</i>
+                            }
+                        </p>
+                        <h5>
+                            @review.Comment
+                        </h5>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</body>

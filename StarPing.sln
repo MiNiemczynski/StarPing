@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35825.156
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarPingSite", "StarPingSite\StarPingSite.csproj", "{1B8F7D7D-C6F3-4D8F-91D8-5BA782D2DC37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{D7BA07AC-2792-4DED-B993-94E23FC23005}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarPingData", "StarPingData\StarPingData.csproj", "{5777BA76-3007-4B41-B634-0B18225699E8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1B8F7D7D-C6F3-4D8F-91D8-5BA782D2DC37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B8F7D7D-C6F3-4D8F-91D8-5BA782D2DC37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B8F7D7D-C6F3-4D8F-91D8-5BA782D2DC37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B8F7D7D-C6F3-4D8F-91D8-5BA782D2DC37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7BA07AC-2792-4DED-B993-94E23FC23005}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7BA07AC-2792-4DED-B993-94E23FC23005}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7BA07AC-2792-4DED-B993-94E23FC23005}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7BA07AC-2792-4DED-B993-94E23FC23005}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5777BA76-3007-4B41-B634-0B18225699E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5777BA76-3007-4B41-B634-0B18225699E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5777BA76-3007-4B41-B634-0B18225699E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5777BA76-3007-4B41-B634-0B18225699E8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {316A87CB-DF76-4EBD-B455-212FBB55894A}
+	EndGlobalSection
+EndGlobal

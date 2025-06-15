@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - StarPing</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="~/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+</head>
+<body class="black white-text">
+    <header>
+        <nav>
+            <div class="nav-wrapper purple accent-3 ">
+                <a class="" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img class="brand-logo left" style="max-height: 100%;" src="~/starping.png" />
+                </a>
+                    @* <a href="#!" class="brand-logo center white-text text-decoration-none">StarPing</a> *@
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a class="white-text text-decoration-none" asp-controller="Offers" asp-action="Index">Offers</a></li>
+                    <li><a class="white-text text-decoration-none" asp-controller="Devices" asp-action="Index">Devices</a></li>
+                    <li><a class="white-text text-decoration-none" asp-controller="Home" asp-action="About">About</a></li>
+                    <li><a class="white-text text-decoration-none" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+
+@* 
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a> *@
+
+        <ul class="sidenav" id="mobile-demo">
+            <li><a class="white-text text-decoration-none" href="#">Price-list</a></li>
+            <li><a class="white-text text-decoration-none" href="#">News</a></li>
+            <li><a class="nav-link text-dark" asp-controller="Home" asp-action="About">About</a></li>
+            <li><a class="white-text text-decoration-none" href="#">Contact</a></li>
+        </ul>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/js/materialize.min.js"></script>
+    <script src="~/js/site.js"></script>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="~/js/materialize.js"></script>
+    <script src="~/js/init.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

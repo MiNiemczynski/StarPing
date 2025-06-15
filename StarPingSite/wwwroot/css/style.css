@@ -1,0 +1,125 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+nav ul a,
+nav .brand-logo {
+    color: #444;
+}
+
+p {
+    line-height: 2rem;
+}
+
+.sidenav-trigger {
+    color: #26a69a;
+}
+
+.parallax-container {
+    min-height: 380px;
+    line-height: 0;
+    height: auto;
+    color: rgba(255,255,255,.9);
+}
+
+    .parallax-container .section {
+        width: 100%;
+    }
+
+@media only screen and (max-width : 992px) {
+    .parallax-container .section {
+        position: absolute;
+        top: 40%;
+    }
+
+    #index-banner .section {
+        top: 10%;
+    }
+}
+
+@media only screen and (max-width : 600px) {
+    #index-banner .section {
+        top: 0;
+    }
+}
+
+.icon-block {
+    padding: 0 15px;
+}
+
+    .icon-block .material-icons {
+        font-size: inherit;
+    }
+
+footer.page-footer {
+    margin: 0;
+}
+
+.logos {
+    display: flex;
+    flex-wrap: wrap; /* Przenosi do nowego wiersza, jeœli brakuje miejsca */
+    justify-content: center; /* Wyœrodkowanie */
+    align-items: center;
+    gap: 20px; /* Odstêpy miêdzy logotypami */
+}
+
+    .logos img {
+        max-width: 150px; /* Maksymalna szerokoœæ logo */
+        height: auto;
+        object-fit: contain;
+        transition: transform 0.1s ease-in-out;
+    }
+
+        .logos img:hover {
+            transform: scale(1.1); /* Powiêkszenie logo po najechaniu */
+        }
+
+
+/* Data (offers) materialize table */
+
+table.striped tr {
+    border-bottom: none;
+}
+
+table.striped > tbody > tr:nth-child(odd) {
+    background-color: black;
+}
+
+table.striped > tbody > tr > td {
+    border-radius: 0;
+}
+
+table.highlight > tbody > tr {
+    -webkit-transition: background-color .25s ease;
+    transition: background-color .25s ease;
+    -webkit-transition: outline .25s ease;
+    transition: outline .25s ease;
+}
+
+    table.highlight > tbody > tr:hover {
+        background-color: black;
+        outline: 10px solid rgba(213,0,249,255);
+        cursor: pointer;
+    }
+
+.tabs {
+    margin-bottom: 10px;
+}
+    .tabs .tab-link.active {
+        color: #d500f9 !important;
+        background-color: black !important;
+        font-weight: bolder;
+    }
+    .tabs .tab-link:hover {
+        color: white !important;
+        background-color: black !important;
+        font-weight: bolder;
+    }
+
+    .tabs .indicator {
+        background-color: white;
+    }

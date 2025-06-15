@@ -1,0 +1,43 @@
+﻿@model IEnumerable<StarPingData.Models.PaymentModel>
+@{
+    Layout = null;
+}
+@if (Model.Any())
+{
+    <div class="col-12">
+        <div class="row">
+            <h4>Order payments:</h4>
+        </div>
+        <div class="row">
+            <table class="highlight responsive-table centered">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Amount</th>
+                        <th>Starus</th>
+                        <th>Deadline date</th>
+                        <th>Paid</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var payment in Model.GroupBy(item => item.DeadlineDate))
+                    {
+                        if (@payment.Sum(p => p.Amount) == 0)
+                            continue;
+                        <tr class="clickable-row" onclick="window.location='@Url.Action("Pay", "Payment", new { payment.First().Id })'">
+                            <td>@payment.First().Id</td>
+                            <td>@payment.Sum(p => p.Amount)</td>
+                            <td>@payment.First().Status</td>
+                            <td>@(payment.First().DeadlineDate == null ? Html.Raw("<p class='yellow-text'>at checkout</p>") : payment.First().DeadlineDate.Value.ToString("dd.MM.yyyy"))</td>
+                            <td>@(payment.First().PaymentDate == null ? Html.Raw("<p class='red-text'>not paid</p>") : payment.First().PaymentDate.Value.ToString("dd.MM.yyyy"))</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
+else
+{
+    <i>No payments items</i>
+}

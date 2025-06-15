@@ -1,0 +1,222 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<body>
+    <div id="index-banner" class="parallax-container">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <br><br>
+                <h1 class="header center purple-text text-accent-3">Your Reliable Internet Provider</h1>
+                <div class="row center">
+                    <h5 class="header col s12 light">
+                        StarPing is a modern internet provider delivering fast, stable, and uninterrupted connections for both individual and business customers. With cutting-edge infrastructure and 24/7 technical support, we guarantee lightning-fast internet for work, entertainment, and gaming.
+                    </h5>
+                </div>
+                <div class="row center">
+                    <div class="col 12">
+                        <a asp-controller="Offers" asp-action="Index" id="download-button" class="btn-large hoverable waves-effect waves-light purple accent-3 lighten-1">See our offers<i class="material-icons right">folder_special</i></a>
+                        <a asp-controller="Devices" asp-action="Index" id="download-button" class="btn-large hoverable waves-effect waves-light purple accent-3 lighten-1">Browse devices<i class="material-icons right">important_devices</i></a>
+                    </div>
+                </div>
+                <br><br>
+
+            </div>
+        </div>
+        <div class="parallax"><img src="starsVertical.png" alt="Unsplashed background img 1"></div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <!--   Cards   -->
+            <div class="row center">
+                <div class="col s12 m6">
+                    <a class="white-text text-decoration-none" asp-controller="Offers" asp-action="Stationary">
+                        <div class="card large purple accent-3">
+                            <div class="card-image hoverable">
+                                <img src="~/home.jpg">
+                                <span class="card-title"><h3>Home</h3></span>
+                            </div>
+                            <div class="card-content">
+                                <p>
+                                    Whether you're streaming your favorite shows, working remotely, or gaming online, our high-speed connection ensures smooth and uninterrupted browsing. With advanced fiber-optic and wireless technology, we guarantee reliable coverage for every corner of your home.
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col s12 m6">
+                    <a class="white-text text-decoration-none" asp-controller="Offers" asp-action="Mobile">
+                        <div class="card large purple accent-3">
+                            <div class="card-image hoverable">
+                                <img src="~/outdoor.jpg">
+                                <span class="card-title"><h3>Mobile</h3></span>
+                            </div>
+                            <div class="card-content">
+                                <p>
+                                    Take high-speed internet wherever you go with StarPing’s mobile plans! Stay online while commuting, traveling, or working on the go with fast and secure mobile data. Our network provides seamless connectivity with extensive coverage, so you’re never out of touch.
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+
+            <!--   Icon Section   -->
+            <div class="row">
+                <div class="col s12 m4">
+                    <div class="icon-block">
+                        <h2 class="center white-text"><i class="material-icons">stars</i></h2>
+                        <h5 class="center">Blazing-Fast Connection</h5>
+
+                        <p class="light">
+                            Enjoy ultra-fast and stable internet speeds that keep up with your needs. Whether you’re streaming, gaming, or working from home, StarPing ensures seamless connectivity with low latency and high reliability.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <div class="icon-block">
+                        <h2 class="center white-text"><i class="material-icons">face</i></h2>
+                        <h5 class="center">Seamless User Experience</h5>
+
+                        <p class="light">
+                            Our network is built for maximum performance, ensuring smooth browsing, high-definition streaming, and uninterrupted online meetings. With adaptive technology, we provide a consistent connection across all your devices.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <div class="icon-block">
+                        <h2 class="center white-text"><i class="material-icons">settings_applications</i></h2>
+                        <h5 class="center">Hassle-Free Setup</h5>
+
+                        <p class="light">
+                            Getting started with StarPing is quick and easy! Our expert support team ensures fast installation and is available 24/7 to assist you. No complicated setups—just plug in and enjoy high-speed internet instantly!
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="parallax-container valign-wrapper">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <div class="row center">
+                    <h5 class="header col s12 light">
+                        Match the fiber optic internet offer to your needs and enjoy a lightning-fast, reliable connection. Choose StarPing and enjoy fast internet in your home.
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="parallax"><img src="~/starsVertical.png" alt="Unsplashed background img 2"></div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+
+            <div class="row">
+                <div class="col s12 center">
+                    <h3><i class="mdi-content-send white-text"></i></h3>
+                    <h4>Reliable Internet for Businesses</h4>
+                    <p class="left-align light">
+                        StarPing provides high-speed, secure, and scalable internet solutions tailored for businesses of all sizes. Whether you run a small office or a large enterprise, we guarantee uninterrupted connectivity, ensuring smooth video conferences, cloud operations, and online transactions. Our dedicated business support team is available 24/7 to provide professional assistance, helping your company stay online and productive at all times.
+                    </p>
+                    <div class="row center">
+                        <div class="col 12">
+                            <a asp-controller="Offers" asp-action="Business" id="download-button" class="btn-large hoverable waves-effect waves-light purple accent-3 lighten-1">
+                                See our business offers
+                                <i class="material-icons right">send</i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section center">
+            <h4>Companies that trusted our service:</h4>
+            <div class="logos">
+                <a href="https://www.lego.com/"><img src="~/LEGO_logo.png" alt="Company 1" /></a>
+                <a href="https://www.facebook.com/sattarbuksh/"><img src="~/starbucks_logo.png" alt="Company 2" /> </a>
+                <a href="https://chemia.uj.edu.pl/pl"> <img src="~/Umbrella_Corporation_logo.png" alt="Company 3" /></a>
+                <a href="https://www.lego.com/"><img src="~/LEGO_logo.png" alt="Company 1" /></a>
+                <a href="https://chemia.uj.edu.pl/pl"> <img src="~/Umbrella_Corporation_logo.png" alt="Company 3" /></a>
+                <a href="https://www.facebook.com/sattarbuksh/"><img src="~/starbucks_logo.png" alt="Company 2" /> </a>
+                <a href="https://chemia.uj.edu.pl/pl"> <img src="~/Umbrella_Corporation_logo.png" alt="Company 3" /></a>
+                <a href="https://www.lego.com/"><img src="~/LEGO_logo.png" alt="Company 1" /></a>
+                <a href="https://www.facebook.com/sattarbuksh/"><img src="~/starbucks_logo.png" alt="Company 2" /> </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="parallax-container valign-wrapper">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <div class="row center">
+                    <h5 class="header col s12 light">
+                        We encourage you to contact us so we can suit our program to your individual needs, and prepare a special offer just for you or your business.
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="parallax"><img src="starsVertical.png" alt="Unsplashed background img 3"></div>
+    </div>
+
+    <footer class="page-footer purple accent-3">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">About StarPing</h5>
+                    <p class="grey-text text-lighten-4">
+                        We are an internet providing company that combine advanced technology with professional service, providing our customers with a stable and ultra-fast connection at home and in the office.
+                    </p>
+                    <a asp-controller="Home" asp-action="About">See more ></a>
+
+                </div>
+                <div class="col l3 s12">
+                    <h5 class="white-text">Settings</h5>
+                    <ul>
+                        <li><a class="white-text" href="#!">Careers</a></li>
+                        <li><a class="white-text" href="#!">Service terms and conditions</a></li>
+                        <li><a class="white-text" href="#!">Privacy and cookie policy</a></li>
+                        <li><a class="white-text" href="#!">Data security</a></li>
+                        <li><a class="white-text" href="#!">Facilities for the disabled</a></li>
+                    </ul>
+                </div>
+                <div class="col l3 s12">
+                    <h5 class="white-text">Shortcuts</h5>
+                    <ul>
+                        <li><a class="white-text" href="#!">Shortcut 1</a></li>
+                        <li><a class="white-text" href="#!">Shortcut 2</a></li>
+                        <li><a class="white-text" href="#!">Shortcut 3</a></li>
+                        <li><a class="white-text" href="#!">Shortcut 4</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container white-text ">
+                Copyright © 2025 <a class="blue-grey-text text-lighten-4">Michał Niemczyński</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <!--  Scripts-->
+    <script>
+        document.addEventListener('mousemove', function (event) {
+
+    </script>
+</body>

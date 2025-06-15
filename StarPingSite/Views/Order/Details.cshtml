@@ -1,0 +1,74 @@
+﻿@model StarPingData.Models.OrderModel
+@{
+    ViewBag.Title = "Your order";
+    if (TempData["ActiveTab"] == null) TempData["ActiveTab"] = "OrdreItems";
+    Layout = "~/Views/Shared/_StoreLayout.cshtml";
+}
+
+<body class="container mt-5">
+    <div class="section center">
+        <h4>Your order:</h4>
+        <div class="col s-12">
+            <div class="row">
+                <ul class="tabs purple accent-3 lighten-1">
+                    <li class="tab col s3">
+                        <a class="text-black tab-link" data-tab="OrdreItems" data-url="@Url.Action("OrderItems", "Order", new { id = Model.Id })">Order items</a>
+                    </li>
+                    <li class="tab col s3">
+                        <a class="text-black tab-link" data-tab="Address" data-url="@Url.Action("Enter", "Address", new { orderId = Model.Id })">Address</a>
+                    </li>
+                    <li class="tab col s3">
+                        <a class="text-black tab-link" data-tab="Payment" data-url="@Url.Action("OrderPayments", "Payment", new { orderId = Model.Id })">Payment</a>
+                    </li>
+                    <li class="tab col s3">
+                        <a class="text-black tab-link" data-tab="Finalize" data-url="@Url.Action("Finalize", "Order", new { id = Model.Id })">Finalization</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="row">
+                <div id="tab-content" class="col s12">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabs = document.querySelectorAll('.tab-link');
+            const container = document.getElementById('tab-content');
+
+            function loadTab(tab) {
+                const url = tab.dataset.url;
+                container.innerHTML = "";
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) throw new Error("> View loading error");
+                        return response.text();
+                    })
+                    .then(html => {
+                        container.innerHTML = html;
+                    })
+                    .catch(error => {
+                        container.innerHTML = "<p class='red-text'> Data loading error</p>";
+                        console.error(error);
+                    });
+            }
+
+            tabs.forEach(function (tab) {
+                tab.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    loadTab(this);
+                });
+            });
+
+            const activeTab = '@TempData["ActiveTab"]';
+            if (activeTab) {
+                const targetTab = Array.from(tabs).find(t => t.dataset.tab === activeTab);
+                if (targetTab) {
+                    loadTab(targetTab);
+                }
+            }
+        });
+    </script>
+
+</body>

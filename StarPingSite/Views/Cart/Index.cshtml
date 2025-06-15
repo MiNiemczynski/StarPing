@@ -1,0 +1,107 @@
+﻿@using StarPingData.Models.Cart
+@model CartDataModel
+@{
+    ViewBag.Title = "Your cart";
+    Layout = "~/Views/Shared/_StoreLayout.cshtml";
+}
+
+<h1 class="header center purple-text text-accent-3">
+    Cart
+</h1>
+<div class="">
+    <div class="section center row">
+        <h4>Browse your Cart:</h4>
+        @if (Model.CartItems.Any())
+        {
+            <div class="col-12">
+                <div class="row">
+                    <div class=" col-8">
+                        <table class="highlight responsive-table centered">
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Name</th>
+                                    <th>Speed (Mbps)</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.CartItems.Where(item => item.IsSubscription))
+                                {
+                                    <tr class="clickable-row" onclick="window.location='@Url.Action("Details", "Offers", new { item.Subscription.Offer.Id })'">
+                                        <td>Subscription</td>
+                                        <td>@item.Subscription.Offer.Name</td>
+                                        <td>@item.Subscription.Offer.SpeedMbps</td>
+                                        <td>@item.Subscription.Offer.Price zł</td>
+                                        <td>@item.Quantity x @item.Subscription.Months months</td>
+                                        <td>
+                                            <a asp-controller="Cart" asp-action="AddOfferToCart" asp-route-id="@item.Subscription.Offer.Id" asp-route-months="@item.Subscription.Months" class="btn-small hoverable waves-effect waves-light purple accent-3 lighten-1">
+                                                <i class="material-icons right">exposure_plus_1</i>
+                                            </a>
+                                            <a asp-controller="Cart" asp-action="DeleteCartItem" asp-route-id="@item.Id" class="btn-small hoverable waves-effect waves-light purple accent-3 lighten-1">
+                                                <i class="material-icons right">exposure_neg_1</i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                                @foreach (var item in Model.CartItems.Where(item => item.IsSubscription == false))
+                                {
+                                    <tr class="clickable-row" onclick="window.location='@Url.Action("Details", "Devices", new { item.Device.Id })'">
+                                        <td>Device</td>
+                                        <td>@item.Device.Name</td>
+                                        <td>@item.Device.SpeedMbps</td>
+                                        <td>@item.Device.Price zł</td>
+                                        <td>@item.Quantity</td>
+                                        <td>
+                                            <a asp-controller="Cart" asp-action="AddDeviceToCart" asp-route-id="@item.Device.Id" class="btn-small hoverable waves-effect waves-light purple accent-3 lighten-1">
+                                                <i class="material-icons right">exposure_plus_1</i>
+                                            </a>
+                                            <a asp-controller="Cart" asp-action="DeleteCartItem" asp-route-id="@item.Id" class="btn-small hoverable waves-effect waves-light purple accent-3 lighten-1">
+                                                <i class="material-icons right">exposure_neg_1</i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <h4 class="header center purple-text text-accent-3">
+                                Checkout
+                            </h4>
+                            <p class="card-title black-text fw-bolder">
+                                Total:
+                            </p>
+                            <div class="card-content black-text fs-5">
+                                @if (Model.Total.ContainsKey(0) && Model.Total[0] != 0)
+                                {
+                                    <p>Current total: <b>@Model.Total[0].ToString("#.##") zł</b></p>
+                                }
+                                @foreach (var price in Model.Total.OrderBy(item => item.Key).Where(item => item.Key != 0))
+                                {
+                                    @*                                     @if (Model.Total.ContainsKey(0) && Model.Total[0] != 0)
+                                    {
+                                        <b>+</b>
+                                    } *@
+                                    <p><b> @price.Value zł</b> x <b>@price.Key</b> months</p>
+                                }
+                            </div>
+                            <div class="card-action">
+                                <a asp-controller="Cart" asp-action="CreateOrder" class="btn-large hoverable waves-effect waves-light purple accent-3 lighten-1">
+                                    Go to checkout
+                                    <i class="material-icons right">shop</i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <i class="centered">No items in cart yet</i>
+        }
+    </div>
+</div>

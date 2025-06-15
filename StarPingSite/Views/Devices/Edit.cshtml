@@ -1,0 +1,49 @@
+﻿@model StarPingData.Models.DeviceModel
+@{
+
+    ViewBag.Title = (Model == null ? "Add" : "Edit") + " Device";
+
+    int modelId = Model == null ? 0 : Model.Id;
+    string aspAction = Model == null ? "Index" : "Details";
+}
+
+<div class="container">
+    <h2>
+        @ViewBag.Title
+    </h2>
+    <form asp-action="Save" method="post" class="light text-white">
+        <input type="hidden" asp-for="Id" />
+        <div class="input-field">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="validate text-light" />
+        </div>
+        <div class="input-field">
+            <label asp-for="Price"></label>
+            <input asp-for="Price" type="number" step="0.01" class="validate text-light" />
+        </div>
+        <div class="input-field">
+            <label asp-for="SpeedMbps" class="active"></label>
+            <input asp-for="SpeedMbps" type="number" class="validate text-light" />
+            <span asp-validation-for="SpeedMbps" class="red-text text-darken-2"></span>
+        </div>
+        <div class="input-field">
+            <label asp-for="Description" class="active"></label>
+            <textarea asp-for="Description" class="materialize-textarea validate text-light"></textarea>
+            <span asp-validation-for="Description" class="red-text text-darken-2"></span>
+        </div>
+        <p>
+            <label>
+                <input asp-for="IsMobile" type="checkbox" />
+                <span class="text-light">Is this a mobile device?</span>
+            </label>
+        </p>
+        <button type="submit" class="btn-large hoverable waves-effect waves-light purple accent-3 lighten-1">
+            Save
+            <i class="material-icons right">save</i>
+        </button>
+        <a asp-controller="Devices" asp-action="@aspAction" asp-route-id="@modelId" class="btn-large hoverable waves-effect waves-light purple accent-3 lighten-1">
+            Cancel
+            <i class="material-icons right">cancel</i>
+        </a>
+    </form>
+</div>

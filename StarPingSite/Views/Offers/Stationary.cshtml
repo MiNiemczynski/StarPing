@@ -1,0 +1,31 @@
+﻿@model IEnumerable<StarPingData.Models.OfferModel>
+@{
+    ViewBag.Title = "Stationary Offers";
+    Layout = "~/Views/Shared/_StoreLayout.cshtml";
+}
+
+<div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+        <div class="container">
+            <br><br>
+            <h1 class="header center purple-text text-accent-3">
+                Lightning-Speed Internet for Your Home
+            </h1>
+            <div class="row center">
+                <h5 class="header col s12 light">
+                    Experience next-generation internet with StarPing’s Fiber plans. Designed for households that demand speed, stability, and bandwidth, our fixed-line internet ensures seamless 4K streaming, video calls, online gaming, and smart home device integration. Say goodbye to lag and hello to uninterrupted browsing — all backed by 24/7 support and zero data limits.
+
+
+                </h5>
+            </div>
+        </div>
+    </div>
+    <div class="parallax"><img src="~/starsVertical.png" alt="Unsplashed background img 1"></div>
+</div>
+
+<div class="container">
+    <div class="section center">
+        <h4>Browse our mobile offers:</h4>
+    </div>
+</div>
+@await Html.PartialAsync("OffersTable", Model)

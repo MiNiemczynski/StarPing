@@ -1,0 +1,53 @@
+﻿@model IEnumerable<StarPingData.Models.OrderModel>
+@{
+    ViewBag.Title = "Your orders";
+    Layout = "~/Views/Shared/_StoreLayout.cshtml";
+}
+
+<div class="container">
+    <div class="section center">
+        @if (Model.Any())
+        {
+            <h4>All orders:</h4>
+            <div class="col-12">
+                <div class="row">
+                    <table class="highlight responsive-table centered">
+                        <thead>
+                            <tr>
+                                <th>Address</th>
+                                <th>Devices</th>
+                                <th>Subscriptions</th>
+                                <th>Order Date</th>
+                                <th>Finalization Date</th>
+                                <th>Payment status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(var order in Model)
+                            {
+                                string city = order.Address?.City ?? "";
+                                string street = order.Address?.Street ?? "";
+                                int devices = order.OrderDevices.Count();
+                                int subscriptions = order.Subscriptions.Count();
+                                var payment = order.Payments.Any(item => item.Status == PaymentStatusEnum.Pending);
+
+                                <tr class="clickable-row" onclick="window.location='@Url.Action("Details", "Order", new { order.Id })'">
+                                    <td>@city @street</td>
+                                    <td>@devices</td>
+                                    <td>@subscriptions</td>
+                                    <td>@order.CreationDate</td>
+                                    <td>@(order.IsFinalized ? order.EditionDate : "Pending")</td>
+                                    <td>@(payment ? "Paid" : "Pending")</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        }
+        else
+        {
+            <h4><i>No orders yet</i></h4>
+        }
+    </div>
+</div>

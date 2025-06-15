@@ -1,0 +1,41 @@
+﻿@model StarPingData.Models.AddressModel
+@{
+    Layout = null;
+}
+
+<div class="col-12">
+    <div class="row">
+        <h4>Order address:</h4>
+    </div>
+    <h2>
+        @ViewBag.Title
+    </h2>
+    <div class="row">
+        <div class="container">
+            <form asp-action="Save" method="post" class="light text-white">
+                <input type="hidden" name="orderId" value="@ViewBag.OrderId" />
+                <input type="hidden" name="Id" value="@Model.Id" />
+                <div class="input-field">
+                    <label asp-for="@Model.City" class="active"></label>
+                    <input asp-for="@Model.City" class="validate text-light" />
+                </div>
+                <div class="input-field">
+                    <label asp-for="@Model.Street" class="active"></label>
+                    <input asp-for="@Model.Street" class="validate text-light" />
+                </div>
+                <div class="input-field">
+                    <label asp-for="@Model.PostalCode" class="active"></label>
+                    <input asp-for="@Model.PostalCode" class="validate text-light" />
+                </div>
+                <div class="input-field">
+                    <label asp-for="@Model.Region" class="active"></label>
+                    <input asp-for="@Model.Region" class="validate text-light" />
+                </div>
+                <button type="submit" class="btn-large hoverable waves-effect waves-light purple accent-3 lighten-1">
+                    Use
+                    <i class="material-icons right">save</i>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

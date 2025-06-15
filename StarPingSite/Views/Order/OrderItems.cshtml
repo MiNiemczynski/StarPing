@@ -1,0 +1,58 @@
+﻿@model StarPingData.Models.OrderModel
+@{
+    Layout = null;
+}
+@if (Model.Subscriptions.Any() || Model.OrderDevices.Any())
+{
+    <div class="col-12">
+        <div class="row">
+            <h4>Order items:</h4>
+        </div>
+        <div class="row">
+            <table class="highlight responsive-table centered">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Name</th>
+                        <th>Speed (Mbps)</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var group in Model.Subscriptions.GroupBy(item => item.Offer.Id))
+                    {
+                        var offer = group.First().Offer;
+                        int months = group.First().Months;
+                        int quantity = group.Count();
+
+                        <tr class="clickable-row" onclick="window.location='@Url.Action("Details", "Offers", new { offer.Id })'">
+                            <td>Subscription</td>
+                            <td>@offer.Name</td>
+                            <td>@offer.SpeedMbps</td>
+                            <td>@offer.Price zł</td>
+                            <td>@quantity x @months months</td>
+                        </tr>
+                    }
+                    @foreach (var group in Model.OrderDevices.GroupBy(item => item.DeviceId))
+                    {
+                        var device = group.First().Device;
+                        int quantity = group.Count();
+
+                        <tr class="clickable-row" onclick="window.location='@Url.Action("Details", "Devices", new { device.Id })'">
+                            <td>Device</td>
+                            <td>@device.Name</td>
+                            <td>@device.SpeedMbps</td>
+                            <td>@device.Price zł</td>
+                            <td>@quantity</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
+else
+{
+    <i>No order items</i>
+}

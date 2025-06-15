@@ -1,0 +1,29 @@
+﻿@model IEnumerable<StarPingData.Models.DeviceModel>
+@{
+    ViewBag.Title = "Mobile Devices";
+    Layout = "~/Views/Shared/_StoreLayout.cshtml";
+}
+
+<div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+        <div class="container">
+            <br><br>
+            <h1 class="header center purple-text text-accent-3">
+                Fast, Cheap and Flexible Internet on the Go
+            </h1>
+            <div class="row center">
+                <h5 class="header col s12 light">
+                    Stay connected wherever you are with StarPing’s Mobile Internet. Perfect for travelers, students, and remote workers, our mobile plans offer high-speed 4G and 5G data with full nationwide coverage. Enjoy the freedom of mobility without compromising on speed or security. Plug and play or hotspot — your internet, your rules.
+                </h5>
+            </div>
+        </div>
+    </div>
+    <div class="parallax"><img src="~/starsVertical.png" alt="Unsplashed background img 1"></div>
+</div>
+
+<div class="container">
+    <div class="section center">
+        <h4>Browse our mobile offers:</h4>
+    </div>
+</div>
+@await Html.PartialAsync("DevicesTable", Model)

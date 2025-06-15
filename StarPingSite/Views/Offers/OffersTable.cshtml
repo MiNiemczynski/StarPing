@@ -1,0 +1,23 @@
+﻿@model IEnumerable<StarPingData.Models.OfferModel>
+@{
+
+}
+<table class="highlight responsive-table centered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Speed (Mbps)</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var offer in Model)
+        {
+            <tr class="clickable-row" onclick="window.location='@Url.Action("Details", new { id = offer.Id })'">
+                <td>@offer.Name</td>
+                <td>@offer.SpeedMbps</td>
+                <td>@offer.Price zł</td>
+            </tr>
+        }
+    </tbody>
+</table>
