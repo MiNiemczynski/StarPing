@@ -1,13 +1,6 @@
-﻿using Azure;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using StarPingData.Models;
 using StarPingData.Models.Cart;
-using StarPingData.Models.Context;
-using StarPingSite.Models;
-using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace StarPingSite.Services
@@ -16,7 +9,7 @@ namespace StarPingSite.Services
     {
         string CartSessionId;
 
-        public WebCartService(HttpClient httpClient, IHttpContextAccessor httpContextAccessor) : base(httpClient) 
+        public WebCartService(HttpClient httpClient, IHttpContextAccessor httpContextAccessor) : base(httpClient)
         {
             CartSessionId = GetIdCartSession(httpContextAccessor.HttpContext);
         }
@@ -42,7 +35,7 @@ namespace StarPingSite.Services
         {
             var items = JsonConvert.DeserializeObject<List<CartItemModel>>
                 (await _httpClient.GetStringAsync($"Api/Cart/Items/{CartSessionId}"));
-            var total = JsonConvert.DeserializeObject<Dictionary<int, decimal>> 
+            var total = JsonConvert.DeserializeObject<Dictionary<int, decimal>>
                 (await _httpClient.GetStringAsync($"Api/Cart/Total/{CartSessionId}"));
 
             return new CartDataModel

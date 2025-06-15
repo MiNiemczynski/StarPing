@@ -1,8 +1,5 @@
 ﻿using Api.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using StarPingData.Models;
-using StarPingData.Models.Cart;
 using StarPingData.Models.Context;
 
 namespace Api.Controllers

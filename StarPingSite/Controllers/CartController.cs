@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using StarPingData.Models;
-using StarPingData.Models.Cart;
-using StarPingData.Models.Context;
 using StarPingSite.Services;
 
 namespace StarPingSite.Controllers
@@ -18,7 +16,7 @@ namespace StarPingSite.Controllers
         {
             var success = await _service.AddDeviceToCart(id);
 
-            if(!success)
+            if (!success)
                 return NotFound();
 
             if (finalize)

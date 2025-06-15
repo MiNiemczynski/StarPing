@@ -3,7 +3,6 @@ using StarPingData.Helpers;
 using StarPingData.Models;
 using StarPingData.Models.Cart;
 using StarPingData.Models.Context;
-using StarPingSite.Services;
 
 namespace Api.Services
 {
@@ -14,7 +13,7 @@ namespace Api.Services
         public async Task<DeviceModel?> AddDeviceToCartAsync(int deviceId, string CartSessionId)
         {
             var device = await _context.Devices.Where(item => item.Id == deviceId && item.IsActive).FirstOrDefaultAsync();
-            if(device == null)
+            if (device == null)
             {
                 return null;
             }

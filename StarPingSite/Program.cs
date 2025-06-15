@@ -1,7 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using StarPingData.Models.Context;
 using StarPingSite.Services;
-using System.Net.Http;
 
 namespace StarPingSite
 {
