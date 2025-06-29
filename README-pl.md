@@ -1,4 +1,4 @@
-<h1>Opis</h1>
+<h2>Opis</h2>
 <p>
   StarPing to aplikacja webowa dostawcy internetu ze sklepem z ofertami subskrypcji i urządzeniami sieciowymi zbudowana według wzorca <strong>MVC</strong> (Model-View-Controller). Umożliwia przeglądanie oferty, składanie zamówień oraz zarządzanie koszykiem.
 </p>
