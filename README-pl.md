@@ -22,7 +22,7 @@
 
 <h2>Strona WWW</h2>
 <p>
-  Do prezentacji widoków użyto <strong>Razor</strong> - wygodnego połączenia HTML i C#, które pozwala mi w wygodny sposób korzystać z funkcji kontrolera lub przekierować do innego. Robię to używając atrybutów ASP oraz Url.Action(), w zależności od potrzeb.
+  Do prezentacji widoków użyto <strong>Razor</strong> - wygodnego połączenia HTML i C#, które pozwala mi w wygodny sposób korzystać z funkcji kontrolera lub przekierować do innego. Robię to używając atrybutów ASP oraz <code>Url.Action()</code>, w zależności od potrzeb.
   Kontrolery witryny pobierają dane z serwisów i wywołują odpowiednie widoki do zaprezentowania.
   Serwisy odpowiadają za wysyłanie zapytań do API, odbieranie otrzymanych danych i deserializowanie ich.
 </p>
